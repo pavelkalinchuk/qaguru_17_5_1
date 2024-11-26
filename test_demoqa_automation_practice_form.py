@@ -1,5 +1,3 @@
-import time
-
 from selene import browser, be, have
 
 
@@ -30,7 +28,8 @@ def test_date_of_birth():
     browser.element('.react-datepicker-popper').should(be.visible)
     browser.element('.react-datepicker__month-select').should(be.visible).element('[value="0"]').click()
     browser.element('.react-datepicker__year-select').should(be.visible).element('[value="2000"]').click()
-    browser.element('.react-datepicker__week').should(be.visible).element('.react-datepicker__day.react-datepicker__day--001').click()
+    browser.element('.react-datepicker__week').should(be.visible).element('.react-datepicker__day.react'
+                                                                          '-datepicker__day--001').click()
     assert browser.element('#dateOfBirthInput').should(have.value('01 Jan 2000'))
 
 
