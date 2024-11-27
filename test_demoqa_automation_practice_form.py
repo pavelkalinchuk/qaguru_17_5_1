@@ -33,11 +33,13 @@ def test_date_of_birth():
     assert browser.element('#dateOfBirthInput').should(have.value('01 Jan 2000'))
 
 
-'''
 def test_subject():
-    pass
+    browser.element('#subjectsInput').click().type("Автоматизация тестирования с помощью Python")
+    assert browser.element('#subjectsInput').should(be.visible).should(have.value('Автоматизация тестирования с '
+                                                                                  'помощью Python'))
 
 
+'''
 def test_hobbies():
     pass
 
