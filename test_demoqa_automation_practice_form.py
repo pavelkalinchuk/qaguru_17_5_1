@@ -39,11 +39,15 @@ def test_subject():
                                                                                   'помощью Python'))
 
 
-'''
 def test_hobbies():
-    pass
+    browser.driver.execute_script("window.scrollBy(0,400)", "")
+    browser.element('label[for="hobbies-checkbox-1"]').click()
+    browser.element('label[for="hobbies-checkbox-3"]').click()
+    assert browser.element('#hobbies-checkbox-1').should(be.selected)
+    assert browser.element('#hobbies-checkbox-3').should(be.selected)
 
 
+'''
 def test_pictures():
     pass
 
