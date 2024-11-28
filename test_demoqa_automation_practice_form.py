@@ -47,11 +47,12 @@ def test_hobbies():
     assert browser.element('#hobbies-checkbox-3').should(be.selected)
 
 
+def test_picture():
+    browser.element('#uploadPicture').send_keys('/Users/pavelkalincuk/qaguru/homework/qaguru_17_5_1/test_file.png')
+    assert browser.element('#uploadPicture').should(have.value("C:\\fakepath\\test_file.png"))
+
+
 '''
-def test_pictures():
-    pass
-
-
 def test_current_address():
     pass
 
