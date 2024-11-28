@@ -52,11 +52,12 @@ def test_picture():
     assert browser.element('#uploadPicture').should(have.value("C:\\fakepath\\test_file.png"))
 
 
-'''
 def test_current_address():
-    pass
+    browser.element('#currentAddress').should(be.visible).click().send_keys("г. Москва, ул. 1-я Строителей, д.1, кв.1")
+    assert browser.element('#currentAddress').should(have.value("г. Москва, ул. 1-я Строителей, д.1, кв.1"))
 
 
+'''
 def test_state_nd_city():
     pass
 
