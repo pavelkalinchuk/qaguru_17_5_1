@@ -57,11 +57,15 @@ def test_current_address():
     assert browser.element('#currentAddress').should(have.value("г. Москва, ул. 1-я Строителей, д.1, кв.1"))
 
 
+def test_state_and_city():
+    browser.driver.execute_script("window.scrollBy(0,400)", "")
+    browser.element('#state').should(be.visible).click().element('#react-select-3-option-3').click()
+    browser.element('#city').should(be.visible).click().element('#react-select-4-option-1').click()
+    assert browser.element('#state').should(have.text("Rajasthan"))
+    assert browser.element('#city').should(have.text("Jaiselmer"))
+
+
 '''
-def test_state_nd_city():
-    pass
-
-
 def test_submit():
     pass
 '''
