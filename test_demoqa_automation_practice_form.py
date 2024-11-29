@@ -1,4 +1,5 @@
 from selene import browser, be, have
+import os
 
 
 def test_name():
@@ -48,7 +49,7 @@ def test_hobbies():
 
 
 def test_picture():
-    browser.element('#uploadPicture').send_keys('/Users/pavelkalincuk/qaguru/homework/qaguru_17_5_1/test_file.png')
+    browser.element('#uploadPicture').send_keys(os.path.abspath('test_file.png'))
     assert browser.element('#uploadPicture').should(have.value("C:\\fakepath\\test_file.png"))
 
 
