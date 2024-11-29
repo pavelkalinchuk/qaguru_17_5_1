@@ -19,8 +19,8 @@ def test_gender():
 
 
 def test_mobile():
-    browser.element('#userNumber').click().type("99-23-67-0")
-    assert browser.element('#userNumber').should(be.visible).should(have.value('99-23-67-0'))
+    browser.element('#userNumber').click().type("8992367011")
+    assert browser.element('#userNumber').should(be.visible).should(have.value('8992367011'))
 
 
 def test_date_of_birth():
@@ -65,7 +65,21 @@ def test_state_and_city():
     assert browser.element('#city').should(have.text("Jaiselmer"))
 
 
-'''
 def test_submit():
-    pass
-'''
+    browser.driver.execute_script("window.scrollBy(0,400)", "")
+    browser.element("#submit").click()
+
+
+def test_table_result():
+    assert browser.element('.table-responsive').should(have.text("Pavel"))
+    assert browser.element('.table-responsive').should(have.text("Kalinchuk"))
+    assert browser.element('.table-responsive').should(have.text("pavelkalinchuk@mail.tst"))
+    assert browser.element('.table-responsive').should(have.text("8992367011"))
+    assert browser.element('.table-responsive').should(have.text("01 January,2000"))
+    assert browser.element('.table-responsive').should(have.text("Sports"))
+    assert browser.element('.table-responsive').should(have.text("Music"))
+    assert browser.element('.table-responsive').should(have.text("test_file.png"))
+    assert browser.element('.table-responsive').should(have.text("г. Москва, ул. 1-я Строителей, д.1, кв.1"))
+    assert browser.element('.table-responsive').should(have.text("Rajasthan"))
+    assert browser.element('.table-responsive').should(have.text("Jaiselmer"))
+    browser.element('.modal-footer').click()
