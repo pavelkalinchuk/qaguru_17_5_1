@@ -1,3 +1,5 @@
+import time
+
 from selene import browser, be, have
 import os
 
@@ -14,7 +16,8 @@ def test_practice_form():
     browser.element('.react-datepicker__year-select').should(be.visible).element('[value="2000"]').click()
     browser.element('.react-datepicker__week').should(be.visible).element('.react-datepicker__day.react'
                                                                           '-datepicker__day--001').click()
-    browser.element('#subjectsInput').click().type("Автоматизация тестирования с помощью Python")
+    browser.element('#subjectsInput').click().type("computer")
+    browser.element('#react-select-2-option-0').click()
     browser.driver.execute_script("window.scrollBy(0,400)", "")
     browser.element('label[for="hobbies-checkbox-1"]').click()
     browser.element('label[for="hobbies-checkbox-3"]').click()
@@ -30,6 +33,7 @@ def test_practice_form():
     assert browser.element('.table-responsive').should(have.text("pavelkalinchuk@mail.tst"))
     assert browser.element('.table-responsive').should(have.text("8992367011"))
     assert browser.element('.table-responsive').should(have.text("01 January,2000"))
+    assert browser.element('.table-responsive').should(have.text("Computer Science"))
     assert browser.element('.table-responsive').should(have.text("Sports"))
     assert browser.element('.table-responsive').should(have.text("Music"))
     assert browser.element('.table-responsive').should(have.text("test_file.png"))
